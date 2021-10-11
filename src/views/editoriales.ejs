@@ -1,0 +1,57 @@
+<%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
+
+<div class="container">
+  <h3 class="mt-2">Editoriales</h3>
+  <div class="row mt-5">
+    <div class="col-md-7">
+      <table id="table_id" class="display">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data) { %> <% for (var i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%= data[i].NombreEditorial %></td>
+            <td>
+              <a
+                href="editoriales/delete/<%= data[i].idEditorial%>"
+                class="btn btn-danger btn-sm"
+                ><i class="bi bi-trash"></i
+              ></a>
+              <a
+                href="editoriales/edit/<%= data[i].idEditorial%>"
+                class="btn btn-warning btn-sm"
+                ><i class="bi bi-pencil"></i
+              ></a>
+            </td>
+          </tr>
+          <% } %> <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="editoriales/add" method="POST">
+            <div class="form-group">
+              <input
+                type="text"
+                name="NombreEditorial"
+                placeholder="Nombre"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">GUARDAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>

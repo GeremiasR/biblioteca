@@ -1,0 +1,38 @@
+<%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
+
+<div class="container mt-5">
+  <h3>Editar Categoria</h3>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="/categorias/edit/<%= data.idCategoria %>" method="POST">
+            <div class="form-group">
+              <input
+                type="text"
+                name="categorianombre"
+                placeholder="Nombre"
+                class="form-control"
+                value="<%= data.categorianombre %>"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="DescripcionCategoria"
+                placeholder="Descripcion"
+                class="form-control"
+                value="<%= data.DescripcionCategoria %>"
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">GUARDAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>
