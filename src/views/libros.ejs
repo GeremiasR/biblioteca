@@ -37,7 +37,7 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <form action="categorias/add" method="POST">
+          <form action="libros/add" method="POST">
             <div class="form-group">
               <input
                 type="text"
@@ -63,18 +63,49 @@
               />
             </div>
             <div class="form-group">
-              <label for="exampleSelect1" class="form-label mt-4"
-                >Example select</label
-              >
-              <select class="form-select" id="exampleSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <label for="Autor_idAutor" class="form-label mt-2">Autor</label>
+              <select class="form-select" name="Autor_idAutor">
+                <% if(autores) { %> <% for (var i = 0; i < autores.length; i++)
+                { %>
+                <option value="<%= autores[i].idAutor%>">
+                  <%= autores[i].NombreAutor%>
+                </option>
+                <% } %> <% } %>
               </select>
             </div>
             <div class="form-group">
+              <label for="ISBN_idISBN" class="form-label mt-2">ISBN</label>
+              <select class="form-select" name="ISBN_idISBN">
+                <% if(isbn) { %> <% for (var i = 0; i < isbn.length; i++) { %>
+                <option value="<%= isbn[i].idISBN%>"><%= isbn[i].ISBN%></option>
+                <% } %> <% } %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="idEditorial" class="form-label mt-2">Editorial</label>
+              <select class="form-select" name="idEditorial">
+                <% if(editoriales) { %> <% for (var i = 0; i <
+                editoriales.length; i++) { %>
+                <option value="<%= editoriales[i].idEditorial%>">
+                  <%= editoriales[i].NombreEditorial%>
+                </option>
+                <% } %> <% } %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Categoria_idCategoria" class="form-label mt-2"
+                >Categoria</label
+              >
+              <select class="form-select" name="Categoria_idCategoria">
+                <% if(categorias) { %> <% for (var i = 0; i < categorias.length;
+                i++) { %>
+                <option value="<%= categorias[i].idCategoria%>">
+                  <%= categorias[i].categorianombre%>
+                </option>
+                <% } %> <% } %>
+              </select>
+            </div>
+            <div class="form-group mt-2">
               <button type="submit" class="btn btn-primary">GUARDAR</button>
             </div>
           </form>

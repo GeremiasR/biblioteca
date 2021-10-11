@@ -10,8 +10,7 @@ router.get("/", async (req, res) => {
       SELECT * from autor; 
       SELECT * from editorial; 
       SELECT * from categoria; 
-      SELECT * from isbn;
-      SELECT * from tiempoestadia`,
+      SELECT * from isbn;`,
 
       function (err, results) {
         if (err) throw err;
@@ -21,7 +20,6 @@ router.get("/", async (req, res) => {
           editoriales: results[2],
           categorias: results[3],
           isbn: results[4],
-          tiempo: results[5],
         });
       }
     );
@@ -31,12 +29,13 @@ router.get("/", async (req, res) => {
 // ADD ACTION
 router.post("/add", (req, res) => {
   const data = req.body;
+  console.log("asd", data);
   req.getConnection((err, conn) => {
     if (err) res.json(err);
-    conn.query("INSERT INTO categoria set ?", [data], (err, row) => {
+    conn.query("INSERT INTO libros set ?", [data], (err, row) => {
       if (err) res.json(err);
       console.log(row);
-      res.redirect("/categorias");
+      res.redirect("/libros");
     });
   });
 });
