@@ -10,7 +10,9 @@ router.get("/", async (req, res) => {
       SELECT * from autor; 
       SELECT * from editorial; 
       SELECT * from categoria; 
-      SELECT * from isbn`,
+      SELECT * from isbn;
+      SELECT * from tiempoestadia`,
+
       function (err, results) {
         if (err) throw err;
         res.render("libros", {
@@ -19,6 +21,7 @@ router.get("/", async (req, res) => {
           editoriales: results[2],
           categorias: results[3],
           isbn: results[4],
+          tiempo: results[5],
         });
       }
     );

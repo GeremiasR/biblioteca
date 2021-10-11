@@ -12,6 +12,7 @@ const editorialesRoutes = require("./routes/editorial");
 const isbnRoutes = require("./routes/isbn");
 const autoresRoutes = require("./routes/autores");
 const librosRoutes = require("./routes/libros");
+const tiemposRoutes = require("./routes/tiempoEstadia");
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -44,6 +45,7 @@ app.use("/editoriales", editorialesRoutes);
 app.use("/isbn", isbnRoutes);
 app.use("/autores", autoresRoutes);
 app.use("/libros", librosRoutes);
+app.use("/tiempoEstadia", tiemposRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));

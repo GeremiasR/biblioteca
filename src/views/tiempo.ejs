@@ -1,0 +1,67 @@
+<%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
+
+<div class="container">
+  <h3 class="mt-2">Tiempo estadia</h3>
+  <div class="row mt-5">
+    <div class="col-md-7">
+      <table id="table_id" class="display">
+        <thead>
+          <tr>
+            <th>Tiempo</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data) { %> <% for (var i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%= data[i].TiempoEstadia %></td>
+            <td><%= data[i].descripcion %></td>
+            <td>
+              <a
+                href="tiempoEstadia/delete/<%= data[i].idTiempoEstadia%>"
+                class="btn btn-danger btn-sm"
+                ><i class="bi bi-trash"></i
+              ></a>
+              <a
+                href="tiempoEstadia/edit/<%= data[i].idTiempoEstadia%>"
+                class="btn btn-warning btn-sm"
+                ><i class="bi bi-pencil"></i
+              ></a>
+            </td>
+          </tr>
+          <% } %> <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="tiempoEstadia/add" method="POST">
+            <div class="form-group mt-2">
+              <input
+                type="text"
+                name="TiempoEstadia"
+                placeholder="tiempo prestamo"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mt-2">
+              <input
+                type="text"
+                name="descripcion"
+                placeholder="Descripcion"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mt-2">
+              <button type="submit" class="btn btn-primary">GUARDAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>
