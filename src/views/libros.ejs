@@ -1,7 +1,7 @@
 <%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
 
 <div class="container">
-  <h3 class="mt-2">Categorias</h3>
+  <h3 class="mt-2">Libros</h3>
   <div class="row mt-5">
     <div class="col-md-7">
       <table id="table_id" class="display">
@@ -38,10 +38,10 @@
       <div class="card">
         <div class="card-body">
           <form action="categorias/add" method="POST">
-            <div class="form-group mt-2">
+            <div class="form-group">
               <input
                 type="text"
-                name="categorianombre"
+                name="nombre"
                 placeholder="Nombre"
                 class="form-control"
               />
@@ -49,12 +49,32 @@
             <div class="form-group mt-2">
               <input
                 type="text"
-                name="DescripcionCategoria"
-                placeholder="Descripcion"
+                name="stock"
+                placeholder="stock"
                 class="form-control"
               />
             </div>
             <div class="form-group mt-2">
+              <input
+                type="text"
+                name="numero_inventario"
+                placeholder="Numero inventario"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4"
+                >Example select</label
+              >
+              <select class="form-select" id="exampleSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
               <button type="submit" class="btn btn-primary">GUARDAR</button>
             </div>
           </form>

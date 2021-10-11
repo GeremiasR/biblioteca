@@ -1,25 +1,22 @@
 <%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
 
 <div class="container mt-5">
-  <h3>Editar Editorial</h3>
+  <h3>Editar Autor</h3>
   <div class="row">
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <form
-            action="/editoriales/edit/<%= data.idEditorial %>"
-            method="POST"
-          >
-            <div class="form-group mt-2">
+          <form action="/autores/edit/<%= data.idAutor %>" method="POST">
+            <div class="form-group">
               <input
                 type="text"
-                name="NombreEditorial"
+                name="NombreAutor"
                 placeholder="Nombre"
                 class="form-control"
-                value="<%= data.NombreEditorial %>"
+                value="<%= data.NombreAutor %>"
               />
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
               <button type="submit" class="btn btn-primary">GUARDAR</button>
             </div>
           </form>

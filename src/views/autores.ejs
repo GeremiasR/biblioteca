@@ -1,30 +1,28 @@
 <%- include("partials/_header") -%> <%- include("partials/_navbar") -%>
 
 <div class="container">
-  <h3 class="mt-2">Categorias</h3>
+  <h3 class="mt-2">Autores</h3>
   <div class="row mt-5">
     <div class="col-md-7">
       <table id="table_id" class="display">
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Descripcion</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <% if(data) { %> <% for (var i = 0; i < data.length; i++) { %>
           <tr>
-            <td><%= data[i].categorianombre %></td>
-            <td><%= data[i].DescripcionCategoria %></td>
+            <td><%= data[i].NombreAutor %></td>
             <td>
               <a
-                href="categorias/delete/<%= data[i].idCategoria%>"
+                href="autores/delete/<%= data[i].idAutor%>"
                 class="btn btn-danger btn-sm"
                 ><i class="bi bi-trash"></i
               ></a>
               <a
-                href="categorias/edit/<%= data[i].idCategoria%>"
+                href="autores/edit/<%= data[i].idAutor%>"
                 class="btn btn-warning btn-sm"
                 ><i class="bi bi-pencil"></i
               ></a>
@@ -37,24 +35,16 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-body">
-          <form action="categorias/add" method="POST">
-            <div class="form-group mt-2">
+          <form action="autores/add" method="POST">
+            <div class="form-group">
               <input
                 type="text"
-                name="categorianombre"
+                name="NombreAutor"
                 placeholder="Nombre"
                 class="form-control"
               />
             </div>
-            <div class="form-group mt-2">
-              <input
-                type="text"
-                name="DescripcionCategoria"
-                placeholder="Descripcion"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
               <button type="submit" class="btn btn-primary">GUARDAR</button>
             </div>
           </form>

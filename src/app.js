@@ -10,6 +10,8 @@ const app = express();
 const categoriasRoutes = require("./routes/categoria");
 const editorialesRoutes = require("./routes/editorial");
 const isbnRoutes = require("./routes/isbn");
+const autoresRoutes = require("./routes/autores");
+const librosRoutes = require("./routes/libros");
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -26,6 +28,7 @@ app.use(
       password: "password",
       port: "3306",
       database: "mydb",
+      multipleStatements: true,
     },
     "single"
   )
@@ -39,6 +42,8 @@ app.get("/", (req, res) => {
 app.use("/categorias", categoriasRoutes);
 app.use("/editoriales", editorialesRoutes);
 app.use("/isbn", isbnRoutes);
+app.use("/autores", autoresRoutes);
+app.use("/libros", librosRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));
